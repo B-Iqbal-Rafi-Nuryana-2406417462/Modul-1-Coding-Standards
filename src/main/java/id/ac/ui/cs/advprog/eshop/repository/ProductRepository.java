@@ -20,4 +20,24 @@ public class ProductRepository {
         return productData.iterator();
     }
 
+    public Product findById(String productId){
+        for (Product product : productData){
+            if (product.getProductId().equals(productId)){
+                return product;
+            }
+        }
+        return null;
+    }
+
+    public Product save(Product product){
+        Product existingProduct = findById(product.getProductId());
+        if (existingProduct != null){
+            int indexOfExistingProduct = productData.indexOf(existingProduct);
+            productData.set(indexOfExistingProduct, product);
+            return product;
+        }
+        return null;
+    }
+
+
 }

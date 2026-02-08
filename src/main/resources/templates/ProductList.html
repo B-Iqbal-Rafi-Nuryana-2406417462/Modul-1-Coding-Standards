@@ -7,7 +7,7 @@
 </head>
 <body>
 
-<div class="container my-2">
+<div class="container my-   2">
     <h2>Product' List</h2>
     <a th:href="@{/product/create}" class="btn btn-primary btn-sm mb-3">Create Product</a>
 
@@ -22,6 +22,9 @@
         <tr th:each="product: ${products}">
             <td th:text="${product.productName}"></td>
             <td th:text="${product.productQuantity}"></td>
+            <td>
+                <a th:href="@{/product/edit/{id}(id=${product.productId})}" class="btn btn-warning btn-sm">Edit</a>
+            </td>
         </tr>
         </tbody>
     </table>
